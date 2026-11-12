@@ -99,11 +99,9 @@ curl -H "X-Emby-Token: YOUR_TOKEN" http://YOUR-SERVER:8096/EmberEDL/ITEM_ID
 ## Releasing a new version (maintainers)
 
 1. Edit `version` in `plugin.yaml` (3 parts, e.g. `0.1.1`) and add a `changelog` line.
-2. Commit, push to `main`, then push the tag:
-   ```bash
-   git tag v0.1.1 && git push origin v0.1.1
-   ```
-   You can also run **Build & publish plugin** from the Actions tab.
+2. Commit and push to `main`. Any change to `plugin.yaml` on `main` starts a release, and the
+   workflow creates the `v0.1.1` tag itself. You can also push a tag yourself, or run
+   **Build & publish plugin** from the Actions tab.
 3. The workflow builds the Jellyfin 10.11 build (.NET 9) and the Jellyfin 12 build (.NET 10), attaches the zips to
    a GitHub Release, and adds both versions to `manifest.json`. If one build fails, the other
    is still published, and a warning appears in the run.

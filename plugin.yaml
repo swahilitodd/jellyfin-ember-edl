@@ -1,5 +1,5 @@
 # Source of truth for the Jellyfin plugin repository (manifest.json).
-# To release: bump `version`, add a changelog line, commit, then push tag v<version>.
+# To release: bump `version`, add a changelog line, commit and push to main.
 name: "Ember EDL Sidecars"
 guid: "e15c6f0b-823e-42f3-b2de-11d55b9a8341"
 version: "0.1.0"

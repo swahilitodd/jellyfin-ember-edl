@@ -1,9 +1,11 @@
 name: Build & publish plugin
 
-# Bump `version` in plugin.yaml, commit, then push a tag like v0.1.1
-# (or run this workflow manually from the Actions tab).
+# Release = bump `version` in plugin.yaml and push to main.
+# (Pushing a tag like v0.1.1 or running it manually from the Actions tab also works.)
 on:
   push:
+    branches: [main]
+    paths: [plugin.yaml]
     tags: ["v*"]
   workflow_dispatch:
 
@@ -45,7 +47,7 @@ jobs:
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" dist/*.zip --clobber
           else
-            gh release create "$TAG" dist/*.zip --title "Ember EDL Sidecars $TAG" \
+            gh release create "$TAG" dist/*.zip --target "$GITHUB_SHA" --title "Ember EDL Sidecars $TAG" \
               --notes "Install from the Jellyfin plugin repository: https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/manifest.json"
           fi
 
