@@ -1,0 +1,28 @@
+# Source of truth for the Jellyfin plugin repository (manifest.json).
+# To release: bump `version`, add a changelog line, commit, then push tag v<version>.
+name: "Ember EDL Sidecars"
+guid: "e15c6f0b-823e-42f3-b2de-11d55b9a8341"
+version: "0.1.0"
+owner: "swahilitodd"
+category: "General"
+overview: "Serves .edl skip/mute sidecars to Ember Player."
+description: >
+  Read-only, authenticated endpoint (GET /EmberEDL/{itemId}) that returns the .edl file
+  sitting next to a movie or episode (Movie.mkv -> Movie.edl). Ember Player uses it to
+  apply skip and mute filters. Respects each user's library access and never modifies media.
+changelog: |-
+  - First release through the Ember plugin repository.
+  - Authenticated GET /EmberEDL/{itemId}; same-name .edl next to the video; 1 MiB limit.
+
+# One build per Jellyfin major line. The 4th version digit identifies the variant
+# (0.1.0.11 = Jellyfin 10.11, 0.1.0.12 = Jellyfin 12) so each server picks the right DLL:
+# 10.11 servers can't see the 12 build (targetAbi too high), and 12 servers prefer .12.
+variants:
+  - jellyfin: "10.11"
+    framework: "net9.0"
+    targetAbi: "10.11.10.0"
+    suffix: "11"
+  - jellyfin: "12"
+    framework: "net10.0"
+    targetAbi: "12.0.0.0"
+    suffix: "12"
