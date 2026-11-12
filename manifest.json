@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "guid": "e15c6f0b-823e-42f3-b2de-11d55b9a8341",
+    "versions": [
+      {
+        "version": "0.1.0.12",
+        "changelog": "- First release through the Ember plugin repository.\n- Authenticated GET /EmberEDL/{itemId}; same-name .edl next to the video; 1 MiB limit.",
+        "targetAbi": "12.0.0.0",
+        "sourceUrl": "https://github.com/swahilitodd/jellyfin-ember-edl/releases/download/v0.1.0/ember-edl-sidecars_0.1.0.12_jellyfin-12.zip",
+        "checksum": "700889fa50f54356e7b4fe1e23a80f99",
+        "timestamp": "2026-11-12T03:23:17Z"
+      },
+      {
+        "version": "0.1.0.11",
+        "changelog": "- First release through the Ember plugin repository.\n- Authenticated GET /EmberEDL/{itemId}; same-name .edl next to the video; 1 MiB limit.",
+        "targetAbi": "10.11.10.0",
+        "sourceUrl": "https://github.com/swahilitodd/jellyfin-ember-edl/releases/download/v0.1.0/ember-edl-sidecars_0.1.0.11_jellyfin-10.11.zip",
+        "checksum": "623323518b9a03e82d305f5518634bd8",
+        "timestamp": "2026-11-12T03:23:17Z"
+      }
+    ],
+    "name": "Ember EDL Sidecars",
+    "description": "Read-only, authenticated endpoint (GET /EmberEDL/{itemId}) that returns the .edl file sitting next to a movie or episode (Movie.mkv -> Movie.edl). Ember Player uses it to apply skip and mute filters. Respects each user's library access and never modifies media.",
+    "overview": "Serves .edl skip/mute sidecars to Ember Player.",
+    "owner": "swahilitodd",
+    "category": "General"
+  }
+]
